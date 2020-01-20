@@ -14,6 +14,9 @@
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
+    // 컴포넌트를 등록함과 동시에 뷰 인스턴스 자체가 상위 컴포넌트가 된다!!
+    // 상위컴포넌트는(뷰 인스턴스) 하위컴포넌트에게 props를 통해 데이터를 전달한다.
+    // 최상위컴포넌트(Root Component)
     Vue.component('child-component', {
       props: ['propsdata'],
       template: '<p>{{propsdata}}</p>'
