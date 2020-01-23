@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <p>
+      <router-link to="/">메인으로 이동</router-link>
+      <router-link to="/login">로그인으로 이동</router-link>
+    </p>
+    <router-view name="header"></router-view>
+    <router-view></router-view>
+    <router-view name="footer"></router-view>
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <!-- 라우터 cdn 추가 -->
+  <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+  <script>
+    var Header = {
+      template: '<div>This is Header</div>'
+    };
+
+    var Body = {
+      template: '<div>This is Body</div>'
+    };
+
+    var Footer = {
+      template: '<div>This is Footer</div>'
+    };
+
+    var LoginHeader = {
+      template: '<div>This is LoginHeader</div>'
+    };
+
+    var LoginBody = {
+      template: '<div>This is LoginBody</div>'
+    };
+
+    var LoginFooter = {
+      template: '<div>This is LoginFooter</div>'
+    };
+
+    var router = new VueRouter({
+      routes: [
+        {
+          path: '/',
+          components: {
+            default: Body,
+            header: Header,
+            footer: Footer
+          }
+        },
+        {
+          path: '/login',
+          components:{
+            default: LoginBody,
+            header: LoginHeader,
+            footer: LoginFooter
+          }
+        }
+      ]
+    });
+
+    var app = new Vue({
+      router
+    }).$mount('#app');
+  </script>
+</body>
+
+</html>
