@@ -1,6 +1,9 @@
 # Vue_Js_Study
-Do it! Vue.js 입문 책 스터디 
+**Do it! Vue.js 입문** 책 스터디 
 
+<img width="251" alt="스크린샷 2020-02-03 오후 3 49 44" src="https://user-images.githubusercontent.com/31758135/73631600-cf996300-469c-11ea-9dd2-fc5eebb9c806.png">
+
+<br>
 <h3>첫째마당 >> Vue.js 필수 기술 살펴보기</h3> 
 
 - 01 Vue.js 소개
