@@ -21,8 +21,7 @@ export default {
       // 빈값 체크
       if(this.newTodoItem !== ""){
         var value = this.newTodoItem && this.newTodoItem.trim();  
-        // 로컬스토리지에 입력한 값 저장(키, 벨류)    
-        localStorage.setItem(this.newTodoItem, this.newTodoItem);
+        this.$emit('addTodo', value);
         this.clearInput();
       } 
     },

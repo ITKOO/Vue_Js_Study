@@ -1,7 +1,7 @@
 <template>
   <section>
     <ul>
-      <li v-for="(todoItem, index) in todoItems" 
+      <li v-for="(todoItem, index) in propsdata" 
       v-bind:key="todoItem" class="shadow">
         <i class="checkBtn fa fa-check" aria-hidden="true"></i>
         {{todoItem}}
@@ -15,19 +15,8 @@
 
 <script>
 export default {
-  data(){
-    return{
-      todoItems: []
-    }
-  },
-  created(){
-    // 할일목록(저장된)이 존재할때
-    if(localStorage.length > 0){
-      for(var i = 0; i < localStorage.length; i++){
-        this.todoItems.push(localStorage.key(i));
-      }
-    }
-  },
+  // App.vue todoItems
+  props: ['propsdata'],
   methods:{
     // 할일 삭제 
     removeTodo(todoItem, index){

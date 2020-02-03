@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <TodoHeader></TodoHeader>
-    <TodoInput></TodoInput>
-    <TodoList></TodoList>
+    <TodoInput v-on:addTodo="addTodo"></TodoInput>
+    <TodoList v-bind:propsdata="todoItems"></TodoList>
     <TodoFooter></TodoFooter>
   </div>
 </template>
@@ -14,6 +14,26 @@ import TodoList from './components/TodoList.vue'
 import TodoFooter from './components/TodoFooter.vue'
 
 export default {
+  data(){
+    return{
+      todoItems: []
+    }
+  },
+  created(){
+    // 할일목록(저장된)이 존재할때
+    if(localStorage.length > 0){
+      for(var i = 0; i < localStorage.length; i++){
+        this.todoItems.push(localStorage.key(i));
+      }
+    }
+  },
+  methods: {
+    addTodo(todoItem){
+      // 로컬스토리지에 데이터 추가
+      localStorage.setItem(todoItem, todoItem);
+      this.todoItems.push(todoItem);
+    }
+  },
   components: {
     'TodoHeader': TodoHeader,
     'TodoInput': TodoInput,
