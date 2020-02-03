@@ -20,9 +20,7 @@ export default {
   methods:{
     // 할일 삭제 
     removeTodo(todoItem, index){
-      localStorage.removeItem(todoItem);
-      // splice 특정인덱스에 부여한 숫자만큼의 인덱스를 삭제 
-      this.todoItems.splice(index, 1);
+      this.$emit('removeTodo', todoItem, index);
     }
   }
 }

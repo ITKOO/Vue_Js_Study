@@ -2,7 +2,7 @@
   <div id="app">
     <TodoHeader></TodoHeader>
     <TodoInput v-on:addTodo="addTodo"></TodoInput>
-    <TodoList v-bind:propsdata="todoItems"></TodoList>
+    <TodoList v-bind:propsdata="todoItems" v-on:removeTodo="removeTodo"></TodoList>
     <TodoFooter v-on:removeAll="clearAll"></TodoFooter>
   </div>
 </template>
@@ -28,11 +28,19 @@ export default {
     }
   },
   methods: {
+    // 할일 추가
     addTodo(todoItem){
       // 로컬스토리지에 데이터 추가
       localStorage.setItem(todoItem, todoItem);
       this.todoItems.push(todoItem);
     },
+    // 할일 삭제
+    removeTodo(todoItem, index){ 
+      // splice 특정인덱스에 부여한 숫자만큼의 인덱스를 삭제 
+      localStorage.removeItem(todoItem);
+      this.todoItems.splice(index, 1);
+    },
+    // 할일 전체 삭제
     clearAll(){
       localStorage.clear();
       this.todoItems = [];
