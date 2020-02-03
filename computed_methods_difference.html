@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>methods</h2>
+    <p>{{message}}</p>
+    <button v-on:click="reverseMsg">문자열 역순</button>
+  </div>
+  <hr>
+  <div id="app2">
+    <h2>computed</h2>
+    <p>{{reversedMessage}}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // 복잡한 연산을 반복 수행해서 화면에 나타내야한다면 
+    // computed 속성을 이용하는 것이 좋음 methods 보다
+    // methods는 캐싱X
+    // !! 수동적으로 데이터를 갱신 ? methods
+    // !! 능동적으로 데이터를 갱신 ? computed
+    new Vue({
+      el: '#app',
+      data:{
+        message: 'Hello Vue.js!'
+      },
+      methods: {
+        reverseMsg: function(){
+          this.message = this.message.split('').reverse().join('');
+          return this.message;
+        }
+      }
+    });
+
+    new Vue({
+      el: '#app2',
+      data: {
+        message: 'Hello Vue.js'
+      },
+      computed: {
+        reversedMessage: function(){
+          return this.message.split('').reverse().join('');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

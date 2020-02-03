@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <header>
+      <!-- #1 -->
+      <h3>{{message}},
+        {{quiz1}}
+      </h3>
+    </header>
+    <section>
+      <!-- #2 -->
+      <p v-bind:id="uid"></p>
+
+      <!-- #3 -->
+      <button v-on:click="clickBtn">alert</button>
+      <button v-on:click="quiz3">QUIZ3</button>
+      <!-- #4 -->
+      <ul v-if="flag">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul> 
+    
+
+
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1. 선언문은 사용 불가능 -->
+    <!-- {{ var a = 10; }} -->
+
+    <!-- 2. 분기 구문은 사용 불가능 -->
+    <!-- {{ if(true){return 100} }} -->
+
+    <!-- 3. 삼항 연산자 표현 가능 -->
+    {{ true? 100 : 0 }}
+
+    <!-- 복잡한 연산은 인스턴스 안에서 수행 -->
+    <!-- {{ message.split('').reverse().join('') }} -->
+
+    <!-- 5. 스크립트에서 computed속성으로  계산한 후 최종 값만 표현 -->
+    {{ reversedMessage }}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue.js!'
+      },
+      computed:{
+        reversedMessage: function(){
+          return this.message.split('').reverse().join('');
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
