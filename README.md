@@ -12,5 +12,7 @@ Do it! Vue.js 입문 책 스터디
 - 04 상용 웹 앱을 개발하기 위한 필수 기술들 - 라우터&HTTP통신
 
 - 05 화면을 개발하기 위한 기본 지식과 팁 - 템플릿&프로젝트 구성
+  
+  -> [프로젝트 구성방법.md](https://github.com/ITKOO/Vue_Js_Study/blob/master/SETTING.md)
 <hr>
 <h3>둘째마당 >> Vue.js 실전 투입!</h3> 
